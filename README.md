@@ -9,6 +9,7 @@ This [repo](git@github.com:benyoo5222/stretch-exercises.git) is used to practice
 - [Pig Latin](./pig-latin.js)
 - [Reverse String](./reverse.js)
 - [Obfuscate](./password.js)
+- [Flatten](./flatten.js)
 
 _Pig Latin_
 
@@ -92,4 +93,30 @@ const obfuscate = (password) => {
 };
 
 obfuscate(process.argv[2]);
+```
+
+_Flatten_
+
+This function flattens nested arrays.
+
+```javascript
+// This function flattens all nested arrays into a 1 dimensional array
+
+const flatten = (array) => {
+  const flattenedArray = [];
+  // Iterate through the array
+  // Check if the value/item is an array or not
+  // If it is, recursively call this function again
+  // If it's not an array, push to final array
+  for (let item of array) {
+    if (Array.isArray(item)) {
+      flattenedArray.push(...flatten(item));
+      continue;
+    }
+
+    flattenedArray.push(item);
+  }
+
+  return flattenedArray;
+};
 ```
